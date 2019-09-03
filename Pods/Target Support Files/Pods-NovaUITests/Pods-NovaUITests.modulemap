@@ -1,0 +1,6 @@
+framework module Pods_NovaUITests {
+  umbrella header "Pods-NovaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

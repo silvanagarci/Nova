@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1E813FC231892E600219768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E813FB231892E600219768 /* AppDelegate.swift */; };
+		B1E813FE231892E600219768 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E813FD231892E600219768 /* LaunchViewController.swift */; };
+		B1E81401231892E600219768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E813FF231892E600219768 /* Main.storyboard */; };
+		B1E81403231892E800219768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E81402231892E800219768 /* Assets.xcassets */; };
+		B1E81406231892E800219768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E81404231892E800219768 /* LaunchScreen.storyboard */; };
+		B1E81411231892E800219768 /* NovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E81410231892E800219768 /* NovaTests.swift */; };
+		B1E8141C231892E800219768 /* NovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8141B231892E800219768 /* NovaUITests.swift */; };
+		B1E814382318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
+		B1E814392318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
+		B1E8143A2318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
+		B1E8143D2318AB2900219768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8143B2318AB2900219768 /* RegistrationViewController.swift */; };
+		B1E8143E2318AB2900219768 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E8143C2318AB2900219768 /* RegistrationViewController.xib */; };
+		B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8143F2318B6FA00219768 /* ChatViewController.swift */; };
+		B1E814422318B6FA00219768 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E814402318B6FA00219768 /* ChatViewController.xib */; };
+		B1E814462318CC7000219768 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E814452318CC7000219768 /* Message.swift */; };
+		C1451C3DBCCF62C107B57744 /* Pods_NovaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7582D0AC6266754C64789E /* Pods_NovaUITests.framework */; };
+		F071D0383BA55CD0B046F16D /* Pods_Nova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB1FAA5DFFEE4BB9A215899 /* Pods_Nova.framework */; };
+		F9F12D4A9D53A7E3F7FE7D7E /* Pods_NovaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77E5440DBF5A810B36D6203 /* Pods_NovaTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1E8140D231892E800219768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E813F0231892E600219768 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1E813F7231892E600219768;
+			remoteInfo = Nova;
+		};
+		B1E81418231892E800219768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E813F0231892E600219768 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1E813F7231892E600219768;
+			remoteInfo = Nova;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0DB1FAA5DFFEE4BB9A215899 /* Pods_Nova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26AAB21FD59015DE520D251C /* Pods-NovaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.debug.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaUITests.release.xcconfig"; path = "Target Support Files/Pods-NovaUITests/Pods-NovaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		393B87AC6F1C031C0DF1D1E5 /* Pods-NovaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.release.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A7582D0AC6266754C64789E /* Pods_NovaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		818D933AFF01B0B876498331 /* Pods-Nova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nova.debug.xcconfig"; path = "Target Support Files/Pods-Nova/Pods-Nova.debug.xcconfig"; sourceTree = "<group>"; };
+		A6A64939511B8B8B9047B23E /* Pods-NovaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NovaUITests/Pods-NovaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1E813F8231892E600219768 /* Nova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nova.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E813FB231892E600219768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1E813FD231892E600219768 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B1E81400231892E600219768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B1E81402231892E800219768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1E81405231892E800219768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B1E81407231892E800219768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E8140C231892E800219768 /* NovaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E81410231892E800219768 /* NovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaTests.swift; sourceTree = "<group>"; };
+		B1E81412231892E800219768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E81417231892E800219768 /* NovaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E8141B231892E800219768 /* NovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaUITests.swift; sourceTree = "<group>"; };
+		B1E8141D231892E800219768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E814372318A63700219768 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B1E8143B2318AB2900219768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		B1E8143C2318AB2900219768 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		B1E8143F2318B6FA00219768 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		B1E814402318B6FA00219768 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		B1E814452318CC7000219768 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CBEBA2003EDBEF9F2AA0F42D /* Pods-Nova.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nova.release.xcconfig"; path = "Target Support Files/Pods-Nova/Pods-Nova.release.xcconfig"; sourceTree = "<group>"; };
+		D77E5440DBF5A810B36D6203 /* Pods_NovaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1E813F5231892E600219768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F071D0383BA55CD0B046F16D /* Pods_Nova.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E81409231892E800219768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F12D4A9D53A7E3F7FE7D7E /* Pods_NovaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E81414231892E800219768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1451C3DBCCF62C107B57744 /* Pods_NovaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		220676821CF370502A16A170 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				818D933AFF01B0B876498331 /* Pods-Nova.debug.xcconfig */,
+				CBEBA2003EDBEF9F2AA0F42D /* Pods-Nova.release.xcconfig */,
+				26AAB21FD59015DE520D251C /* Pods-NovaTests.debug.xcconfig */,
+				393B87AC6F1C031C0DF1D1E5 /* Pods-NovaTests.release.xcconfig */,
+				A6A64939511B8B8B9047B23E /* Pods-NovaUITests.debug.xcconfig */,
+				38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		56C502801BABA7B1E6B161EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DB1FAA5DFFEE4BB9A215899 /* Pods_Nova.framework */,
+				D77E5440DBF5A810B36D6203 /* Pods_NovaTests.framework */,
+				6A7582D0AC6266754C64789E /* Pods_NovaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1E813EF231892E600219768 = {
+			isa = PBXGroup;
+			children = (
+				B1E813FA231892E600219768 /* Nova */,
+				B1E8140F231892E800219768 /* NovaTests */,
+				B1E8141A231892E800219768 /* NovaUITests */,
+				B1E813F9231892E600219768 /* Products */,
+				220676821CF370502A16A170 /* Pods */,
+				56C502801BABA7B1E6B161EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B1E813F9231892E600219768 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1E813F8231892E600219768 /* Nova.app */,
+				B1E8140C231892E800219768 /* NovaTests.xctest */,
+				B1E81417231892E800219768 /* NovaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1E813FA231892E600219768 /* Nova */ = {
+			isa = PBXGroup;
+			children = (
+				B1E814442318CC4800219768 /* Models */,
+				B1E813FB231892E600219768 /* AppDelegate.swift */,
+				B1E8142A2318935100219768 /* Resources */,
+				B1E8142C2318942100219768 /* Supporting Files */,
+				B1E8142B2318938D00219768 /* UI */,
+				B1E814292318933400219768 /* View Controllers */,
+				B1E8142D231894F700219768 /* View Models */,
+			);
+			path = Nova;
+			sourceTree = "<group>";
+		};
+		B1E8140F231892E800219768 /* NovaTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1E81410231892E800219768 /* NovaTests.swift */,
+				B1E81412231892E800219768 /* Info.plist */,
+			);
+			path = NovaTests;
+			sourceTree = "<group>";
+		};
+		B1E8141A231892E800219768 /* NovaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B1E8141B231892E800219768 /* NovaUITests.swift */,
+				B1E8141D231892E800219768 /* Info.plist */,
+			);
+			path = NovaUITests;
+			sourceTree = "<group>";
+		};
+		B1E814292318933400219768 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1E814322318A10800219768 /* Launch */,
+				B1E814332318A11800219768 /* Chat */,
+				B1E814342318A35100219768 /* Registration */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B1E8142A2318935100219768 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1E81402231892E800219768 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B1E8142B2318938D00219768 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B1E813FF231892E600219768 /* Main.storyboard */,
+				B1E81404231892E800219768 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B1E8142C2318942100219768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1E814372318A63700219768 /* GoogleService-Info.plist */,
+				B1E81407231892E800219768 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1E8142D231894F700219768 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		B1E814322318A10800219768 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B1E813FD231892E600219768 /* LaunchViewController.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		B1E814332318A11800219768 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B1E8143F2318B6FA00219768 /* ChatViewController.swift */,
+				B1E814402318B6FA00219768 /* ChatViewController.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		B1E814342318A35100219768 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				B1E8143B2318AB2900219768 /* RegistrationViewController.swift */,
+				B1E8143C2318AB2900219768 /* RegistrationViewController.xib */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		B1E814442318CC4800219768 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1E814452318CC7000219768 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1E813F7231892E600219768 /* Nova */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1E81420231892E800219768 /* Build configuration list for PBXNativeTarget "Nova" */;
+			buildPhases = (
+				563156DB840C72AE6BA845F7 /* [CP] Check Pods Manifest.lock */,
+				B1E813F4231892E600219768 /* Sources */,
+				B1E813F5231892E600219768 /* Frameworks */,
+				B1E813F6231892E600219768 /* Resources */,
+				26AA014D8AAB0ACB6661EA71 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nova;
+			productName = Nova;
+			productReference = B1E813F8231892E600219768 /* Nova.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1E8140B231892E800219768 /* NovaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1E81423231892E800219768 /* Build configuration list for PBXNativeTarget "NovaTests" */;
+			buildPhases = (
+				731F82B07E873D993B783605 /* [CP] Check Pods Manifest.lock */,
+				B1E81408231892E800219768 /* Sources */,
+				B1E81409231892E800219768 /* Frameworks */,
+				B1E8140A231892E800219768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1E8140E231892E800219768 /* PBXTargetDependency */,
+			);
+			name = NovaTests;
+			productName = NovaTests;
+			productReference = B1E8140C231892E800219768 /* NovaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B1E81416231892E800219768 /* NovaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1E81426231892E800219768 /* Build configuration list for PBXNativeTarget "NovaUITests" */;
+			buildPhases = (
+				DC453B08F843FB15A8BBE4F4 /* [CP] Check Pods Manifest.lock */,
+				B1E81413231892E800219768 /* Sources */,
+				B1E81414231892E800219768 /* Frameworks */,
+				B1E81415231892E800219768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1E81419231892E800219768 /* PBXTargetDependency */,
+			);
+			name = NovaUITests;
+			productName = NovaUITests;
+			productReference = B1E81417231892E800219768 /* NovaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1E813F0231892E600219768 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Silvana Garcia";
+				TargetAttributes = {
+					B1E813F7231892E600219768 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					B1E8140B231892E800219768 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = B1E813F7231892E600219768;
+					};
+					B1E81416231892E800219768 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = B1E813F7231892E600219768;
+					};
+				};
+			};
+			buildConfigurationList = B1E813F3231892E600219768 /* Build configuration list for PBXProject "Nova" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1E813EF231892E600219768;
+			productRefGroup = B1E813F9231892E600219768 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1E813F7231892E600219768 /* Nova */,
+				B1E8140B231892E800219768 /* NovaTests */,
+				B1E81416231892E800219768 /* NovaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1E813F6231892E600219768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E81406231892E800219768 /* LaunchScreen.storyboard in Resources */,
+				B1E81403231892E800219768 /* Assets.xcassets in Resources */,
+				B1E814422318B6FA00219768 /* ChatViewController.xib in Resources */,
+				B1E814382318A63700219768 /* GoogleService-Info.plist in Resources */,
+				B1E8143E2318AB2900219768 /* RegistrationViewController.xib in Resources */,
+				B1E81401231892E600219768 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E8140A231892E800219768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E814392318A63700219768 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E81415231892E800219768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E8143A2318A63700219768 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26AA014D8AAB0ACB6661EA71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nova/Pods-Nova-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nova/Pods-Nova-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nova/Pods-Nova-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		563156DB840C72AE6BA845F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nova-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		731F82B07E873D993B783605 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NovaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC453B08F843FB15A8BBE4F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NovaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1E813F4231892E600219768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E813FE231892E600219768 /* LaunchViewController.swift in Sources */,
+				B1E8143D2318AB2900219768 /* RegistrationViewController.swift in Sources */,
+				B1E814462318CC7000219768 /* Message.swift in Sources */,
+				B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */,
+				B1E813FC231892E600219768 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E81408231892E800219768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E81411231892E800219768 /* NovaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E81413231892E800219768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E8141C231892E800219768 /* NovaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1E8140E231892E800219768 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1E813F7231892E600219768 /* Nova */;
+			targetProxy = B1E8140D231892E800219768 /* PBXContainerItemProxy */;
+		};
+		B1E81419231892E800219768 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1E813F7231892E600219768 /* Nova */;
+			targetProxy = B1E81418231892E800219768 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B1E813FF231892E600219768 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1E81400231892E600219768 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B1E81404231892E800219768 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1E81405231892E800219768 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1E8141E231892E800219768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1E8141F231892E800219768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1E81421231892E800219768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 818D933AFF01B0B876498331 /* Pods-Nova.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = "$(SRCROOT)/Nova/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.Nova;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1E81422231892E800219768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBEBA2003EDBEF9F2AA0F42D /* Pods-Nova.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = "$(SRCROOT)/Nova/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.Nova;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B1E81424231892E800219768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26AAB21FD59015DE520D251C /* Pods-NovaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = NovaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nova.app/Nova";
+			};
+			name = Debug;
+		};
+		B1E81425231892E800219768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 393B87AC6F1C031C0DF1D1E5 /* Pods-NovaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = NovaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nova.app/Nova";
+			};
+			name = Release;
+		};
+		B1E81427231892E800219768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A64939511B8B8B9047B23E /* Pods-NovaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = NovaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nova;
+			};
+			name = Debug;
+		};
+		B1E81428231892E800219768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3EGKJKCC3E;
+				INFOPLIST_FILE = NovaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nova;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1E813F3231892E600219768 /* Build configuration list for PBXProject "Nova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E8141E231892E800219768 /* Debug */,
+				B1E8141F231892E800219768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1E81420231892E800219768 /* Build configuration list for PBXNativeTarget "Nova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E81421231892E800219768 /* Debug */,
+				B1E81422231892E800219768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1E81423231892E800219768 /* Build configuration list for PBXNativeTarget "NovaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E81424231892E800219768 /* Debug */,
+				B1E81425231892E800219768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1E81426231892E800219768 /* Build configuration list for PBXNativeTarget "NovaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E81427231892E800219768 /* Debug */,
+				B1E81428231892E800219768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1E813F0231892E600219768 /* Project object */;
+}

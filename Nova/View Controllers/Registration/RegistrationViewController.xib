@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="Nova" customModuleProvider="target">
+            <connections>
+                <outlet property="loginButton" destination="EEw-I9-uBt" id="ibT-du-0Zo"/>
+                <outlet property="passwordTextField" destination="QBP-jE-ard" id="rD7-Ih-TR9"/>
+                <outlet property="usernameTextField" destination="fTA-0o-eBE" id="1r8-zn-kGw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-jE-ard">
+                    <rect key="frame" x="50" y="448" width="314" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTA-0o-eBE">
+                    <rect key="frame" x="50" y="403" width="314" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEw-I9-uBt">
+                    <rect key="frame" x="167" y="498" width="80" height="32"/>
+                    <color key="backgroundColor" red="0.40488238235091051" green="0.65061629465391602" blue="0.77288229695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="QiG-ZR-p9S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.0098901915129999997" green="0.021150286559999999" blue="0.097596763959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="tE8-6C-LKY"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nova" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYA-vL-tue">
+                    <rect key="frame" x="139.5" y="297" width="135" height="66"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="55"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0098901915129999997" green="0.021150286559999999" blue="0.097596763959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fTA-0o-eBE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4bu-Yu-PDj"/>
+                <constraint firstItem="QBP-jE-ard" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ADQ-1V-6ag"/>
+                <constraint firstItem="QBP-jE-ard" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="DVE-51-pVK"/>
+                <constraint firstItem="fTA-0o-eBE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Rnz-AZ-A60"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fTA-0o-eBE" secondAttribute="trailing" constant="50" id="a9t-ns-EnS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QBP-jE-ard" secondAttribute="trailing" constant="50" id="bzk-lK-WUQ"/>
+                <constraint firstItem="QBP-jE-ard" firstAttribute="top" secondItem="fTA-0o-eBE" secondAttribute="bottom" constant="15" id="m5o-08-lVB"/>
+                <constraint firstItem="EEw-I9-uBt" firstAttribute="top" secondItem="QBP-jE-ard" secondAttribute="bottom" constant="20" id="oKm-rr-tzw"/>
+                <constraint firstItem="EEw-I9-uBt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ssd-yw-Jv6"/>
+                <constraint firstItem="dYA-vL-tue" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w1v-m7-wWO"/>
+                <constraint firstItem="fTA-0o-eBE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="wSl-rI-z7z"/>
+                <constraint firstItem="fTA-0o-eBE" firstAttribute="top" secondItem="dYA-vL-tue" secondAttribute="bottom" constant="40" id="xei-VZ-xf8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cHm-Bl-ngr">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+        </button>
+    </objects>
+</document>

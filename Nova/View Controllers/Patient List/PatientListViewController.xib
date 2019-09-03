@@ -27,7 +27,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVt-Um-EXC">
-                    <rect key="frame" x="100" y="826" width="214" height="46"/>
+                    <rect key="frame" x="100" y="826" width="214" height="50"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.36862745099999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="Log Out">
@@ -44,7 +44,7 @@
                 <constraint firstAttribute="bottom" secondItem="B85-Uf-Yrf" secondAttribute="bottom" constant="80" id="NB2-ag-XkD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FVt-Um-EXC" secondAttribute="trailing" constant="100" id="a8X-oD-KXw"/>
                 <constraint firstItem="B85-Uf-Yrf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bIn-DR-4Gq"/>
-                <constraint firstItem="FVt-Um-EXC" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="hJ6-Kc-lVe"/>
+                <constraint firstAttribute="bottom" secondItem="FVt-Um-EXC" secondAttribute="bottom" constant="20" id="dDd-KF-pKs"/>
                 <constraint firstItem="FVt-Um-EXC" firstAttribute="top" secondItem="B85-Uf-Yrf" secondAttribute="bottom" constant="10" id="ni1-24-vhc"/>
                 <constraint firstItem="B85-Uf-Yrf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pjF-et-3to"/>
                 <constraint firstItem="FVt-Um-EXC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="rYx-Qk-qqE"/>

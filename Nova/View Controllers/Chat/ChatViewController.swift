@@ -13,7 +13,7 @@ class ChatViewController: MessagesViewController {
     var member: Member!
     var nova: Member!
     var posResponse = 0
-    var responseArray = ["I understand test and exams can be stressful. I'm here to help you feel more in control.", "Is there a specific thought or situation that is bothering you?"]
+    var responseArray = ["Is there a specific thought or situation that is bothering you?", "I understand test and exams can be stressful. I'm here to help you feel more in control.", ]
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

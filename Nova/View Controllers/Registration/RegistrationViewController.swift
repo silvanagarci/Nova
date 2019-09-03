@@ -10,17 +10,23 @@ import UIKit
 //import FirebaseAuth
 
 class RegistrationViewController: UIViewController {
-    
-    @IBOutlet weak var loginButton: UIButton!
+        
+    @IBOutlet weak var loginPatientButton: UIButton!
+    @IBOutlet weak var loginTherapistButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
-    
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        //Auth.auth().signInAnonymously() { (user, error) in
-       // }
+ 
+
+    @IBAction func patientLoginButtonTapped(_ sender: Any) {
         navigateToMessagesVC()
+        
     }
+    
+    @IBAction func therapistLoginButtonTapped(_ sender: Any) {
+        navigateToPatientListVC()
+    }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,8 +40,10 @@ class RegistrationViewController: UIViewController {
     func configureVC() {
         usernameTextField.placeholder = "Username"
         passwordTextField.placeholder = "Password"
-        loginButton.layer.cornerRadius = 1
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 3/255.0, green: 5/255.0, blue: 25/255.0, alpha: 2.0)
+        loginTherapistButton.layer.cornerRadius = 5
+        loginPatientButton.layer.cornerRadius = 5
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255.0, green: 94/255.0, blue: 97/255.0, alpha: 2.0)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.isTranslucent = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -54,6 +62,14 @@ class RegistrationViewController: UIViewController {
      */
     func navigateToMessagesVC() {
         let navigationController = UINavigationController(rootViewController: ChatViewController())
+        present(navigationController, animated: false, completion: nil)
+    }
+    
+    /**
+     Navigate to MessagesVC
+     */
+    func navigateToPatientListVC() {
+        let navigationController = UINavigationController(rootViewController: PatientListViewController())
         present(navigationController, animated: false, completion: nil)
     }
 

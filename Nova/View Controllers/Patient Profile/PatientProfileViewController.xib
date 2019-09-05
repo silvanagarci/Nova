@@ -54,7 +54,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9G6-XG-Ntm">
-                    <rect key="frame" x="80" y="431" width="254" height="33"/>
+                    <rect key="frame" x="80" y="360.5" width="254" height="33"/>
                     <color key="backgroundColor" red="0.49179989813483332" green="0.71864192391977455" blue="0.8336572017766497" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Show Carter's Recent Data">
@@ -79,7 +79,6 @@
                 <constraint firstItem="2DZ-e9-V7N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="9rA-7j-BQS"/>
                 <constraint firstItem="Nxu-yn-3gL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="EgZ-3a-VNY"/>
                 <constraint firstItem="9G6-XG-Ntm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="KEH-Rl-t0t"/>
-                <constraint firstItem="9G6-XG-Ntm" firstAttribute="top" secondItem="2DZ-e9-V7N" secondAttribute="bottom" constant="120.5" id="MAr-n4-CWT"/>
                 <constraint firstItem="Kf9-CR-WFa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="MMb-Vj-xlk"/>
                 <constraint firstItem="Q8o-QR-1ta" firstAttribute="top" secondItem="Sly-iM-gS7" secondAttribute="bottom" constant="15" id="Mii-RK-D50"/>
                 <constraint firstItem="2DZ-e9-V7N" firstAttribute="top" secondItem="Nxu-yn-3gL" secondAttribute="bottom" constant="10" id="YRj-jC-QjO"/>
@@ -87,6 +86,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2DZ-e9-V7N" secondAttribute="trailing" constant="15" id="bGZ-BD-ZMy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9G6-XG-Ntm" secondAttribute="trailing" constant="80" id="bYB-rS-PWo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sly-iM-gS7" secondAttribute="trailing" constant="15" id="gHQ-YQ-rqY"/>
+                <constraint firstItem="9G6-XG-Ntm" firstAttribute="top" secondItem="2DZ-e9-V7N" secondAttribute="bottom" constant="50" id="jgF-rP-CZ3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Kf9-CR-WFa" secondAttribute="bottom" constant="50" id="mDs-r9-5S1"/>
                 <constraint firstItem="Q8o-QR-1ta" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="sep-YG-pme"/>
                 <constraint firstItem="Sly-iM-gS7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="tE4-0i-Zfa"/>

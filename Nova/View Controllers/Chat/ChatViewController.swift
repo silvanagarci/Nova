@@ -23,7 +23,7 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        member = Member(name: "silvana")
+        member = Member(name: "Carter")
         nova = Member(name: "Nova")
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -38,7 +38,7 @@ class ChatViewController: MessagesViewController {
         
         let initialMessage = Message(
             member: nova,
-            text: "Hi, I'm Nova. How are you feeling today?",
+            text: "Hi Carter, I'm Nova. How are you feeling today?",
             messageId: UUID().uuidString)
         
         messages.append(initialMessage)

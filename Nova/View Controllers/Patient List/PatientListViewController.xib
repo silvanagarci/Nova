@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B85-Uf-Yrf">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="816"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="772"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVt-Um-EXC">
@@ -45,11 +45,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FVt-Um-EXC" secondAttribute="trailing" constant="100" id="a8X-oD-KXw"/>
                 <constraint firstItem="B85-Uf-Yrf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bIn-DR-4Gq"/>
                 <constraint firstAttribute="bottom" secondItem="FVt-Um-EXC" secondAttribute="bottom" constant="20" id="dDd-KF-pKs"/>
+                <constraint firstItem="B85-Uf-Yrf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dgb-KE-5Is"/>
                 <constraint firstItem="FVt-Um-EXC" firstAttribute="top" secondItem="B85-Uf-Yrf" secondAttribute="bottom" constant="10" id="ni1-24-vhc"/>
-                <constraint firstItem="B85-Uf-Yrf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pjF-et-3to"/>
                 <constraint firstItem="FVt-Um-EXC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="rYx-Qk-qqE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </view>
     </objects>
 </document>

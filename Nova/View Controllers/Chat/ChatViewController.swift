@@ -45,8 +45,21 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
         
+        configureVC()
+        
     }
     
+    func configureVC() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Go Back", style: .plain, target: self, action: #selector(navigateToMenu))
+    }
+    
+    /**
+     Go bac to menu
+     */
+    @objc func navigateToMenu() {
+        let navigationController = UINavigationController(rootViewController: RegistrationViewController())
+        present(navigationController, animated: false, completion: nil)
+    }
 }
 
 // MARK: - MessagesDataSource

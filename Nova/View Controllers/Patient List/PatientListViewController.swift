@@ -10,13 +10,11 @@ import UIKit
 
 class PatientListViewController: UIViewController {
     
-    
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     private var patientList = ["Stephen Boxwell", "Carter"]
-    
-    
+
     @IBAction func logOutButtonTapped(_ sender: Any) {
         navigateToRegistrationVC()
     }
@@ -24,7 +22,6 @@ class PatientListViewController: UIViewController {
     override func viewDidLoad() {
         configureVC()
         super.viewDidLoad()
-
     }
     
     func configureVC() {

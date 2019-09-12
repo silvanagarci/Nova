@@ -1,5 +1,5 @@
 osx_image: xcode10.1
-language: swift
+language: swift4.2
 os: osx
 xcode_project: Nova.xcodeproj
 xcode_scheme: Nova

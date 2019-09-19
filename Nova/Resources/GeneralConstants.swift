@@ -8,6 +8,5 @@
 
 import Foundation
 
-let assistantApiKey = Bundle.main.object(forInfoDictionaryKey: "IbmKey") as! String
-
 let kEmptyString = ""
+let kNovaColor = UIColor(red: 245/255.0, green: 94/255.0, blue: 97/255.0, alpha: 2.0)

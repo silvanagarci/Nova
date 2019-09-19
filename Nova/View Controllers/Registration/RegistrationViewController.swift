@@ -42,7 +42,7 @@ class RegistrationViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         loginTherapistButton.layer.cornerRadius = 5
         loginPatientButton.layer.cornerRadius = 5
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255.0, green: 94/255.0, blue: 97/255.0, alpha: 2.0)
+        self.navigationController?.navigationBar.barTintColor = kNovaColor
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.isTranslucent = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))

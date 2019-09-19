@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14E90492334234600484BCC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E90482334234600484BCC /* Credentials.swift */; };
 		B15A9F20231F088A005EEDC4 /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A9F1E231F088A005EEDC4 /* PatientListViewController.swift */; };
 		B15A9F21231F088A005EEDC4 /* PatientListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15A9F1F231F088A005EEDC4 /* PatientListViewController.xib */; };
 		B15AB15E23317BD100A05755 /* GeneralConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AB15D23317BD100A05755 /* GeneralConstants.swift */; };
-		B15AB1602331819F00A05755 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AB15F2331819F00A05755 /* Credentials.swift */; };
 		B1832585231F22DC00EE0A6A /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1832583231F22DC00EE0A6A /* PatientProfileViewController.swift */; };
 		B1832586231F22DC00EE0A6A /* PatientProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1832584231F22DC00EE0A6A /* PatientProfileViewController.xib */; };
 		B1E813FC231892E600219768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E813FB231892E600219768 /* AppDelegate.swift */; };
@@ -58,10 +58,10 @@
 		6A7582D0AC6266754C64789E /* Pods_NovaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		818D933AFF01B0B876498331 /* Pods-Nova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nova.debug.xcconfig"; path = "Target Support Files/Pods-Nova/Pods-Nova.debug.xcconfig"; sourceTree = "<group>"; };
 		A6A64939511B8B8B9047B23E /* Pods-NovaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NovaUITests/Pods-NovaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B14E90482334234600484BCC /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		B15A9F1E231F088A005EEDC4 /* PatientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListViewController.swift; sourceTree = "<group>"; };
 		B15A9F1F231F088A005EEDC4 /* PatientListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientListViewController.xib; sourceTree = "<group>"; };
 		B15AB15D23317BD100A05755 /* GeneralConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralConstants.swift; sourceTree = "<group>"; };
-		B15AB15F2331819F00A05755 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		B1832583231F22DC00EE0A6A /* PatientProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
 		B1832584231F22DC00EE0A6A /* PatientProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientProfileViewController.xib; sourceTree = "<group>"; };
 		B1E813F8231892E600219768 /* Nova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nova.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +227,7 @@
 			children = (
 				B1E81402231892E800219768 /* Assets.xcassets */,
 				B15AB15D23317BD100A05755 /* GeneralConstants.swift */,
-				B15AB15F2331819F00A05755 /* Credentials.swift */,
+				B14E90482334234600484BCC /* Credentials.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -522,7 +522,7 @@
 				B1E813FE231892E600219768 /* LaunchViewController.swift in Sources */,
 				B1E8143D2318AB2900219768 /* RegistrationViewController.swift in Sources */,
 				B15A9F20231F088A005EEDC4 /* PatientListViewController.swift in Sources */,
-				B15AB1602331819F00A05755 /* Credentials.swift in Sources */,
+				B14E90492334234600484BCC /* Credentials.swift in Sources */,
 				B1E814462318CC7000219768 /* Message.swift in Sources */,
 				B15AB15E23317BD100A05755 /* GeneralConstants.swift in Sources */,
 				B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */,

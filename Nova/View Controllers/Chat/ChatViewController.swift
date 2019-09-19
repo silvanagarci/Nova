@@ -11,12 +11,11 @@ import Assistant
 
 class ChatViewController: MessagesViewController {
     var assistant: Assistant?
+    let dispatchGroup =  DispatchGroup()
     var messages: [WatsonMessage] = []
     var sessionId = ""
     var novaUser = Sender(id: "0", displayName: "Nova")
     var patientUser = Sender(id: "1", displayName: "Patient")
-    let dispatchGroup =  DispatchGroup()
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -27,7 +26,6 @@ class ChatViewController: MessagesViewController {
         configureVC()
         setupWatsonAssistant()
         createWatsonSession()
-
     }
     
     /**
@@ -39,13 +37,11 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
         // remove avatar from message view
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
-        
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
     }
@@ -89,7 +85,8 @@ class ChatViewController: MessagesViewController {
      Start conversation
      */
     func startConversation() {
-        print("ses", sessionId)
+
+        dispatchGroup.enter()
         assistant?.message(assistantID: Credentials.assistantId, sessionID: sessionId) {
             response, error in
             if let error = error {
@@ -118,10 +115,17 @@ class ChatViewController: MessagesViewController {
                 return
             }
             
-            var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: result.output.generic?.description ?? kEmptyString)
-            self.messages.insert(inputMessage, at: 0)
-            
-            print(result)
+            for message in result.output.generic ?? [] {
+                var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
+                self.messages.append(inputMessage)
+            }
+            self.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("done reading messages")
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }
 
     }
@@ -218,16 +222,46 @@ extension ChatViewController: MessageInputBarDelegate {
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
         
+        dispatchGroup.enter()
         assistant?.message(assistantID: Credentials.assistantId, sessionID: sessionId, input: MessageInput(text: text)) {
             response, error in
+            if let error = error {
+                switch error {
+                case let .http(statusCode, message, metadata):
+                    switch statusCode {
+                    case .some(404):
+                        // Handle Not Found (404) exception
+                        print("Not found")
+                    case .some(413):
+                        // Handle Request Too Large (413) exception
+                        print("Payload too large")
+                    default:
+                        if let statusCode = statusCode {
+                            print("Error - code: \(statusCode), \(message ?? "")")
+                        }
+                    }
+                default:
+                    print(error.localizedDescription)
+                }
+                return
+            }
             
-            guard let message = response?.result else {
+            guard let result = response?.result else {
                 print(error?.localizedDescription ?? "unknown error")
                 return
             }
             
-            self.messages.append(newMessage)
-            
+            for message in result.output.generic ?? [] {
+                var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
+                self.messages.append(inputMessage)
+            }
+            self.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("done reading messages")
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }
         
     }

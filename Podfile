@@ -3,7 +3,7 @@
 
 def general_pods
   pod 'MessageKit', '1.0.0'
-  pod 'IBMWatsonAssistantV1'
+  pod 'IBMWatsonAssistantV2', '~> 2.3.0'
 end
 
 

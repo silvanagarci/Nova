@@ -1,16 +1,24 @@
 PODS:
+  - IBMWatsonAssistantV2 (2.3.0):
+    - IBMWatsonRestKit (~> 3.0.0)
+  - IBMWatsonRestKit (3.0.3)
   - MessageKit (1.0.0)
 
 DEPENDENCIES:
+  - IBMWatsonAssistantV2 (~> 2.3.0)
   - MessageKit (= 1.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IBMWatsonAssistantV2
+    - IBMWatsonRestKit
     - MessageKit
 
 SPEC CHECKSUMS:
+  IBMWatsonAssistantV2: 98bdb101d8d1ec777f5410b889f1594875d6b00e
+  IBMWatsonRestKit: 47dcac7ccc12e0d15a948b79e481e0e0abacb057
   MessageKit: 16160036b16476b04bd0e9f2c7ce67e662e503e4
 
-PODFILE CHECKSUM: 304baf3c47b095ec9e69e39a7523943dc0799b75
+PODFILE CHECKSUM: be3b43331f58284d72cc84f4b5b1921a4de973d7
 
 COCOAPODS: 1.7.5

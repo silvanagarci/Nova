@@ -13,8 +13,8 @@ PODS:
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - Alamofire-SwiftyJSON
+  - Alamofire (< 5)
+  - Alamofire-SwiftyJSON (= 3.0.0)
   - Charts
   - IBMWatsonAssistantV2 (~> 2.3.0)
   - MessageKit (= 1.0.0)
@@ -39,6 +39,6 @@ SPEC CHECKSUMS:
   MessageKit: 16160036b16476b04bd0e9f2c7ce67e662e503e4
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 6bb84fd4a3c55377b8aa037f8cc7915eb35fffea
+PODFILE CHECKSUM: b99526a065eba36d3da3c9921f206b97504ef693
 
 COCOAPODS: 1.8.0

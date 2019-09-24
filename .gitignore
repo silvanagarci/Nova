@@ -21,7 +21,7 @@ DerivedData/
 xcuserdata/
 
 ## Other
-Credentials.swift
+Nova.xcodeproj/xcshareddata/*
 Info.plist
 *.moved-aside
 *.xccheckout

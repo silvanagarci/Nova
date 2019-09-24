@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class PatientProfileViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class PatientProfileViewController: UIViewController {
     @IBOutlet weak var patientDataButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var _lineChartView: LineChartView!
     
     @IBAction func patientDataButtonTapped(_ sender: Any) {        
         let alertController = UIAlertController(title: "Patient's Report", message: " Patient has shown 21.2% anxiety and 57.5% stress levels in the past week." , preferredStyle: .alert)
@@ -30,6 +32,7 @@ class PatientProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         configureVC()
+        loadAndRenderAnxietyChart()
         super.viewDidLoad()
     }
     
@@ -47,6 +50,32 @@ class PatientProfileViewController: UIViewController {
     func navigateToPatientListVC() {
         let navigationController = UINavigationController(rootViewController: PatientListViewController())
         present(navigationController, animated: false, completion: nil)
+    }
+    
+    func loadAndRenderAnxietyChart() {
+//        let anxietyValues = [4, 7, 3, 9, 1, 3, 10]
+        
+        BackendService.shared.getAnxiety(forUserId: 1, completion: {anxietyValues in
+            
+            var i = 0
+            let chartDataEntries : [ChartDataEntry] = anxietyValues.compactMap({ val in
+                let entry = ChartDataEntry(x: Double(i), y: Double(val))
+                i = i + 1 // i++ was blocked by compiler
+                return entry
+            })
+            
+            let line1 = LineChartDataSet(entries: chartDataEntries, label: "Anxiety")
+            
+            line1.colors = [UIColor.blue]
+            
+            let data = LineChartData()
+            data.addDataSet(line1)
+            
+            self._lineChartView.data = data
+            self._lineChartView.chartDescription?.text = "Anxiety"
+        })
+        
+
     }
     
     /**

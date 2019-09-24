@@ -1,24 +1,44 @@
 PODS:
+  - Alamofire (4.9.0)
+  - Alamofire-SwiftyJSON (3.0.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0.0)
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
   - IBMWatsonAssistantV2 (2.3.0):
     - IBMWatsonRestKit (~> 3.0.0)
   - IBMWatsonRestKit (3.0.3)
   - MessageKit (1.0.0)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - Alamofire-SwiftyJSON
+  - Charts
   - IBMWatsonAssistantV2 (~> 2.3.0)
   - MessageKit (= 1.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - IBMWatsonAssistantV2
     - IBMWatsonRestKit
     - MessageKit
+  trunk:
+    - Alamofire
+    - Alamofire-SwiftyJSON
+    - Charts
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   IBMWatsonAssistantV2: 98bdb101d8d1ec777f5410b889f1594875d6b00e
   IBMWatsonRestKit: 47dcac7ccc12e0d15a948b79e481e0e0abacb057
   MessageKit: 16160036b16476b04bd0e9f2c7ce67e662e503e4
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: be3b43331f58284d72cc84f4b5b1921a4de973d7
+PODFILE CHECKSUM: 6bb84fd4a3c55377b8aa037f8cc7915eb35fffea
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.0

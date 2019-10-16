@@ -2,7 +2,7 @@
 //  NovaUITests.swift
 //  NovaUITests
 //
-//  Created by Silvana Garcia on 8/29/19.
+//  Created by Max Dignan on 9/24/19.
 //  Copyright © 2019 Silvana Garcia. All rights reserved.
 //
 

@@ -36,6 +36,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
+        messageInputBar.inputTextView.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         // remove avatar from message view
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
@@ -265,4 +266,20 @@ extension ChatViewController: MessageInputBarDelegate {
         }
         
     }
+    
+    
+}
+
+// MARK: - TextViewDelegate
+
+extension ChatViewController : UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.contains("\n") {
+            textView.text = textView.text.replacingOccurrences(of: "\n", with: "")
+            textView.endEditing(true)
+            self.messageInputBar(self.messageInputBar, didPressSendButtonWith: textView.text)
+        }
+    }
+
 }

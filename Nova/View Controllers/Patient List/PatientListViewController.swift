@@ -13,7 +13,7 @@ class PatientListViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    private var patientList = ["Stephen Boxwell", "Carter"]
+    private var patientList = BackendService.shared.getDoctorsPatients()
 
     @IBAction func logOutButtonTapped(_ sender: Any) {
         navigateToRegistrationVC()
@@ -35,8 +35,12 @@ class PatientListViewController: UIViewController {
         
     }
     
-    func navigateToPatientProfileVC() {
-        let navigationController = UINavigationController(rootViewController: PatientProfileViewController())
+    func navigateToPatientProfileVC(selectedRow: Int) {
+        let patientViewController = PatientProfileViewController()
+        patientViewController.patientId = self.patientList[selectedRow]["id"] as! Int
+        
+        let navigationController = UINavigationController(rootViewController: patientViewController)
+        
         present(navigationController, animated: false, completion: nil)
     }
     
@@ -55,7 +59,7 @@ extension PatientListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier") as! UITableViewCell
         
         //adding the item to table row
-        cell.textLabel?.text = patientList[indexPath.row]
+        cell.textLabel?.text = patientList[indexPath.row]["name"] as? String
         
         return cell
     }
@@ -64,7 +68,7 @@ extension PatientListViewController : UITableViewDataSource {
 
 extension PatientListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToPatientProfileVC()
+        navigateToPatientProfileVC(selectedRow: indexPath.row)
         
     }
     

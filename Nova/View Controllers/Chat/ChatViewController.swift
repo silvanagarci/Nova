@@ -17,6 +17,10 @@ class ChatViewController: MessagesViewController {
     var novaUser = Sender(id: "0", displayName: "Nova")
     var patientUser = Sender(id: "1", displayName: "Patient")
     
+    let conversationId = 100 + Int.random(in: 0 ..< 10)
+    
+    var convoList : [String] = []
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -63,6 +67,9 @@ class ChatViewController: MessagesViewController {
             }
             
             self.sessionId = session.sessionID
+            
+            self.createConversations(id: self.conversationId)
+            
             print(self.sessionId)
             self.dispatchGroup.leave()
         }
@@ -80,6 +87,29 @@ class ChatViewController: MessagesViewController {
     func setupWatsonAssistant() {
         assistant = Assistant(version: "2019-02-28", apiKey: Credentials.WatsonApiKey)
         assistant?.serviceURL = "https://gateway.watsonplatform.net/assistant/api"
+    }
+    
+    func createConversations(id: Int) {
+        let now = Date()
+        
+        let formatter = DateFormatter()
+        
+        formatter.timeZone = TimeZone.current
+        
+        formatter.dateFormat = "MM-dd-YY"
+        
+        let dateString = formatter.string(from: now)
+        
+        BackendService.shared.conversationsWithIdDate.append([
+            "id": id,
+            "date": dateString
+        ])
+    }
+    
+    func postMessage(msg: WatsonMessage) {
+        convoList.append(msg.text)
+        
+        BackendService.shared.conversationsById[String(self.conversationId)] = convoList
     }
     
     /**
@@ -219,6 +249,9 @@ extension ChatViewController: MessageInputBarDelegate {
             text: text)
         
         messages.append(newMessage)
+        
+        self.postMessage(msg: newMessage)
+        
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
@@ -255,6 +288,8 @@ extension ChatViewController: MessageInputBarDelegate {
             for message in result.output.generic ?? [] {
                 var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
                 self.messages.append(inputMessage)
+                
+                self.postMessage(msg: inputMessage)
             }
             self.dispatchGroup.leave()
         }

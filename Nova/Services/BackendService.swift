@@ -15,6 +15,28 @@ class BackendService {
     
     static let shared = BackendService()
     
+    var conversationsById = [
+        "11": [
+            "How was your day?",
+            "Not so good today"
+        ],
+        "12": [
+            "How was your day?",
+            "Pretty good",
+        ]
+    ]
+    
+    var conversationsWithIdDate = [
+        [
+            "id": 11,
+            "date": "10-13-19"
+        ],
+        [
+            "id": 12,
+            "date": "10-14-19"
+        ]
+    ]
+    
     func getAnxiety(forUserId: Int, completion: @escaping (_ result: [Int])->()) {
         request(baseUrl + "/anxiety/1").responseSwiftyJSON {dataResponse in
             
@@ -25,6 +47,19 @@ class BackendService {
             }
         
         }
+    }
+    
+    func getDoctorsPatients() -> [Dictionary<String, Any>] {
+        return [
+//            [
+//                "name": "Stephen Boxwell",
+//                "id": 1
+//            ],
+            [
+                "name": "Carter",
+                "id": 2
+            ]
+        ]
     }
     
 //    func getConversations(forUserId: Int, completion: @escaping (_ result: [Int])->()) {
@@ -38,5 +73,15 @@ class BackendService {
 //
 //        }
 //    }
+    
+    func getConversations(ofDoctor: Int, forPatientId: Int) -> [Dictionary<String, Any>] {
+        
+        return conversationsWithIdDate
+    }
+    
+    func getConversationById(conversationId: Int) -> [String] {
+        
+        return self.conversationsById[String(conversationId)]!
+    }
 
 }

@@ -11,20 +11,26 @@ import Charts
 
 class PatientProfileViewController: UIViewController {
 
-    @IBOutlet weak var focusTextField: UITextField!
-    @IBOutlet weak var frequencyTextField: UITextField!
-    @IBOutlet weak var patientDataButton: UIButton!
+//    @IBOutlet weak var focusTextField: UITextField!
+//    @IBOutlet weak var frequencyTextField: UITextField!
+//    @IBOutlet weak var patientDataButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var _lineChartView: LineChartView!
     
-    @IBAction func patientDataButtonTapped(_ sender: Any) {        
-        let alertController = UIAlertController(title: "Patient's Report", message: " Patient has shown 21.2% anxiety and 57.5% stress levels in the past week." , preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Thanks Nova!", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
+    @IBOutlet weak var _tableView: UITableView!
+    
+    var patientId = 0
+    
+    var conversations : [Dictionary<String, Any>] = []
+    
+//    @IBAction func patientDataButtonTapped(_ sender: Any) {
+//        let alertController = UIAlertController(title: "Patient's Report", message: " Patient has shown 21.2% anxiety and 57.5% stress levels in the past week." , preferredStyle: .alert)
+//        let defaultAction = UIAlertAction(title: "Thanks Nova!", style: .default, handler: nil)
+//        alertController.addAction(defaultAction)
+//
+//        present(alertController, animated: true, completion: nil)
+//    }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         navigateToPatientListVC()
@@ -33,6 +39,9 @@ class PatientProfileViewController: UIViewController {
     override func viewDidLoad() {
         configureVC()
         loadAndRenderAnxietyChart()
+        _tableView.dataSource = self
+        _tableView.delegate = self
+        loadConversationsForPatient(patientId: self.patientId)
         super.viewDidLoad()
     }
     
@@ -41,10 +50,17 @@ class PatientProfileViewController: UIViewController {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.isTranslucent = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))
+        tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
         saveButton.layer.cornerRadius = 5
-        patientDataButton.layer.cornerRadius = 5
+//        patientDataButton.layer.cornerRadius = 5
         
+    }
+    
+    func loadConversationsForPatient(patientId: Int) {
+        self.conversations = BackendService.shared.getConversations(ofDoctor: 0, forPatientId: patientId)
+        
+        self._tableView.reloadData()
     }
         
     func navigateToPatientListVC() {
@@ -53,9 +69,9 @@ class PatientProfileViewController: UIViewController {
     }
     
     func loadAndRenderAnxietyChart() {
-//        let anxietyValues = [4, 7, 3, 9, 1, 3, 10]
+        let anxietyValues = [4, 7, 3, 9, 1, 3, 10].sorted().reversed()
         
-        BackendService.shared.getAnxiety(forUserId: 1, completion: {anxietyValues in
+        BackendService.shared.getAnxiety(forUserId: 1, completion: {CHANGE_TO_anxiety_values in
             
             var i = 0
             let chartDataEntries : [ChartDataEntry] = anxietyValues.compactMap({ val in
@@ -78,11 +94,51 @@ class PatientProfileViewController: UIViewController {
 
     }
     
+    func loadAndShowConversationAt(conversationId: Int) {
+        let convo : [String] = BackendService.shared.getConversationById(conversationId: conversationId)
+        
+        let alertController = UIAlertController(title: "Patient's Conversation", message: convo.joined(separator: "\n") , preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Thanks Nova!", style: .default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
     /**
      Hide keyboard
      */
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        frequencyTextField.resignFirstResponder()
-        focusTextField.resignFirstResponder()
+//        frequencyTextField.resignFirstResponder()
+//        focusTextField.resignFirstResponder()
+    }
+}
+
+extension PatientProfileViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.conversations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        cell.textLabel!.text = self.conversations[indexPath.row]["date"] as! String
+        
+        return cell
+    }
+    
+
+}
+
+extension PatientProfileViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        loadAndShowConversationAt(conversationId: self.conversations[indexPath.row]["id"] as! Int)
     }
 }

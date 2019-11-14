@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		134BF4E923399CC400202332 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134BF4E823399CC400202332 /* BackendService.swift */; };
+		13A97649233AD301008E4CF4 /* NovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A97648233AD301008E4CF4 /* NovaUITests.swift */; };
+		13BA14F6235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA14F5235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift */; };
+		13BA14F8235FA25300511E96 /* HighRiskMessageDetectedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BA14F7235FA25300511E96 /* HighRiskMessageDetectedViewController.xib */; };
 		B14E90492334234600484BCC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E90482334234600484BCC /* Credentials.swift */; };
 		B15A9F20231F088A005EEDC4 /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A9F1E231F088A005EEDC4 /* PatientListViewController.swift */; };
 		B15A9F21231F088A005EEDC4 /* PatientListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15A9F1F231F088A005EEDC4 /* PatientListViewController.xib */; };
@@ -20,29 +23,26 @@
 		B1E81403231892E800219768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E81402231892E800219768 /* Assets.xcassets */; };
 		B1E81406231892E800219768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E81404231892E800219768 /* LaunchScreen.storyboard */; };
 		B1E81411231892E800219768 /* NovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E81410231892E800219768 /* NovaTests.swift */; };
-		B1E8141C231892E800219768 /* NovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8141B231892E800219768 /* NovaUITests.swift */; };
 		B1E814382318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
 		B1E814392318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
-		B1E8143A2318A63700219768 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1E814372318A63700219768 /* GoogleService-Info.plist */; };
 		B1E8143D2318AB2900219768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8143B2318AB2900219768 /* RegistrationViewController.swift */; };
 		B1E8143E2318AB2900219768 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E8143C2318AB2900219768 /* RegistrationViewController.xib */; };
 		B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8143F2318B6FA00219768 /* ChatViewController.swift */; };
 		B1E814422318B6FA00219768 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E814402318B6FA00219768 /* ChatViewController.xib */; };
 		B1E814462318CC7000219768 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E814452318CC7000219768 /* Message.swift */; };
-		C1451C3DBCCF62C107B57744 /* Pods_NovaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7582D0AC6266754C64789E /* Pods_NovaUITests.framework */; };
 		F071D0383BA55CD0B046F16D /* Pods_Nova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB1FAA5DFFEE4BB9A215899 /* Pods_Nova.framework */; };
 		F9F12D4A9D53A7E3F7FE7D7E /* Pods_NovaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77E5440DBF5A810B36D6203 /* Pods_NovaTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B1E8140D231892E800219768 /* PBXContainerItemProxy */ = {
+		13A9764B233AD301008E4CF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1E813F0231892E600219768 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B1E813F7231892E600219768;
 			remoteInfo = Nova;
 		};
-		B1E81418231892E800219768 /* PBXContainerItemProxy */ = {
+		B1E8140D231892E800219768 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1E813F0231892E600219768 /* Project object */;
 			proxyType = 1;
@@ -54,6 +54,11 @@
 /* Begin PBXFileReference section */
 		0DB1FAA5DFFEE4BB9A215899 /* Pods_Nova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134BF4E823399CC400202332 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		13A97646233AD301008E4CF4 /* NovaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13A97648233AD301008E4CF4 /* NovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaUITests.swift; sourceTree = "<group>"; };
+		13A9764A233AD301008E4CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13BA14F5235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighRiskMessageDetectedViewController.swift; sourceTree = "<group>"; };
+		13BA14F7235FA25300511E96 /* HighRiskMessageDetectedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighRiskMessageDetectedViewController.xib; sourceTree = "<group>"; };
 		26AAB21FD59015DE520D251C /* Pods-NovaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.debug.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaUITests.release.xcconfig"; path = "Target Support Files/Pods-NovaUITests/Pods-NovaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		393B87AC6F1C031C0DF1D1E5 /* Pods-NovaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.release.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		B1E8140C231892E800219768 /* NovaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E81410231892E800219768 /* NovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaTests.swift; sourceTree = "<group>"; };
 		B1E81412231892E800219768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1E81417231892E800219768 /* NovaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E8141B231892E800219768 /* NovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaUITests.swift; sourceTree = "<group>"; };
 		B1E8141D231892E800219768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1E814372318A63700219768 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +94,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		13A97643233AD301008E4CF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E813F5231892E600219768 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,14 +117,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1E81414231892E800219768 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C1451C3DBCCF62C107B57744 /* Pods_NovaUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -123,6 +126,24 @@
 				134BF4E823399CC400202332 /* BackendService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		13A97647233AD301008E4CF4 /* NovaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				13A97648233AD301008E4CF4 /* NovaUITests.swift */,
+				13A9764A233AD301008E4CF4 /* Info.plist */,
+			);
+			path = NovaUITests;
+			sourceTree = "<group>";
+		};
+		13BA14F4235FA1A100511E96 /* HighRiskMsgDetected */ = {
+			isa = PBXGroup;
+			children = (
+				13BA14F5235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift */,
+				13BA14F7235FA25300511E96 /* HighRiskMessageDetectedViewController.xib */,
+			);
+			path = HighRiskMsgDetected;
 			sourceTree = "<group>";
 		};
 		220676821CF370502A16A170 /* Pods */ = {
@@ -172,6 +193,7 @@
 				B1E813FA231892E600219768 /* Nova */,
 				B1E8140F231892E800219768 /* NovaTests */,
 				B1E8141A231892E800219768 /* NovaUITests */,
+				13A97647233AD301008E4CF4 /* NovaUITests */,
 				B1E813F9231892E600219768 /* Products */,
 				220676821CF370502A16A170 /* Pods */,
 				56C502801BABA7B1E6B161EE /* Frameworks */,
@@ -183,7 +205,7 @@
 			children = (
 				B1E813F8231892E600219768 /* Nova.app */,
 				B1E8140C231892E800219768 /* NovaTests.xctest */,
-				B1E81417231892E800219768 /* NovaUITests.xctest */,
+				13A97646233AD301008E4CF4 /* NovaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +213,7 @@
 		B1E813FA231892E600219768 /* Nova */ = {
 			isa = PBXGroup;
 			children = (
+				13BA14F4235FA1A100511E96 /* HighRiskMsgDetected */,
 				134BF4E723399CA700202332 /* Services */,
 				B1E814442318CC4800219768 /* Models */,
 				B1E813FB231892E600219768 /* AppDelegate.swift */,
@@ -305,6 +328,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		13A97645233AD301008E4CF4 /* NovaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13A9764D233AD301008E4CF4 /* Build configuration list for PBXNativeTarget "NovaUITests" */;
+			buildPhases = (
+				13A97642233AD301008E4CF4 /* Sources */,
+				13A97643233AD301008E4CF4 /* Frameworks */,
+				13A97644233AD301008E4CF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13A9764C233AD301008E4CF4 /* PBXTargetDependency */,
+			);
+			name = NovaUITests;
+			productName = NovaUITests;
+			productReference = 13A97646233AD301008E4CF4 /* NovaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B1E813F7231892E600219768 /* Nova */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1E81420231892E800219768 /* Build configuration list for PBXNativeTarget "Nova" */;
@@ -343,25 +384,6 @@
 			productReference = B1E8140C231892E800219768 /* NovaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B1E81416231892E800219768 /* NovaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B1E81426231892E800219768 /* Build configuration list for PBXNativeTarget "NovaUITests" */;
-			buildPhases = (
-				DC453B08F843FB15A8BBE4F4 /* [CP] Check Pods Manifest.lock */,
-				B1E81413231892E800219768 /* Sources */,
-				B1E81414231892E800219768 /* Frameworks */,
-				B1E81415231892E800219768 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B1E81419231892E800219768 /* PBXTargetDependency */,
-			);
-			name = NovaUITests;
-			productName = NovaUITests;
-			productReference = B1E81417231892E800219768 /* NovaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,14 +394,14 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Silvana Garcia";
 				TargetAttributes = {
+					13A97645233AD301008E4CF4 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = B1E813F7231892E600219768;
+					};
 					B1E813F7231892E600219768 = {
 						CreatedOnToolsVersion = 10.3;
 					};
 					B1E8140B231892E800219768 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = B1E813F7231892E600219768;
-					};
-					B1E81416231892E800219768 = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = B1E813F7231892E600219768;
 					};
@@ -400,12 +422,19 @@
 			targets = (
 				B1E813F7231892E600219768 /* Nova */,
 				B1E8140B231892E800219768 /* NovaTests */,
-				B1E81416231892E800219768 /* NovaUITests */,
+				13A97645233AD301008E4CF4 /* NovaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		13A97644233AD301008E4CF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E813F6231892E600219768 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +444,7 @@
 				B15A9F21231F088A005EEDC4 /* PatientListViewController.xib in Resources */,
 				B1E814422318B6FA00219768 /* ChatViewController.xib in Resources */,
 				B1832586231F22DC00EE0A6A /* PatientProfileViewController.xib in Resources */,
+				13BA14F8235FA25300511E96 /* HighRiskMessageDetectedViewController.xib in Resources */,
 				B1E814382318A63700219768 /* GoogleService-Info.plist in Resources */,
 				B1E8143E2318AB2900219768 /* RegistrationViewController.xib in Resources */,
 				B1E81401231892E600219768 /* Main.storyboard in Resources */,
@@ -426,14 +456,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E814392318A63700219768 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B1E81415231892E800219768 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1E8143A2318A63700219768 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,31 +523,17 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC453B08F843FB15A8BBE4F4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NovaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		13A97642233AD301008E4CF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13A97649233AD301008E4CF4 /* NovaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E813F4231892E600219768 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +546,7 @@
 				B1E814462318CC7000219768 /* Message.swift in Sources */,
 				B15AB15E23317BD100A05755 /* GeneralConstants.swift in Sources */,
 				B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */,
+				13BA14F6235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift in Sources */,
 				B1E813FC231892E600219768 /* AppDelegate.swift in Sources */,
 				B1832585231F22DC00EE0A6A /* PatientProfileViewController.swift in Sources */,
 			);
@@ -551,26 +560,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1E81413231892E800219768 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1E8141C231892E800219768 /* NovaUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		13A9764C233AD301008E4CF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1E813F7231892E600219768 /* Nova */;
+			targetProxy = 13A9764B233AD301008E4CF4 /* PBXContainerItemProxy */;
+		};
 		B1E8140E231892E800219768 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B1E813F7231892E600219768 /* Nova */;
 			targetProxy = B1E8140D231892E800219768 /* PBXContainerItemProxy */;
-		};
-		B1E81419231892E800219768 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B1E813F7231892E600219768 /* Nova */;
-			targetProxy = B1E81418231892E800219768 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -594,6 +595,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		13A9764E233AD301008E4CF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCJDD4P974;
+				INFOPLIST_FILE = NovaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dignan.NovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nova;
+			};
+			name = Debug;
+		};
+		13A9764F233AD301008E4CF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCJDD4P974;
+				INFOPLIST_FILE = NovaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dignan.NovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nova;
+			};
+			name = Release;
+		};
 		B1E8141E231892E800219768 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -653,6 +694,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Nova;
 			};
 			name = Debug;
 		};
@@ -708,6 +750,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Nova;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -794,51 +837,18 @@
 			};
 			name = Release;
 		};
-		B1E81427231892E800219768 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6A64939511B8B8B9047B23E /* Pods-NovaUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3EGKJKCC3E;
-				INFOPLIST_FILE = NovaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nova;
-			};
-			name = Debug;
-		};
-		B1E81428231892E800219768 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3EGKJKCC3E;
-				INFOPLIST_FILE = NovaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = silvanagarcia.NovaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nova;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		13A9764D233AD301008E4CF4 /* Build configuration list for PBXNativeTarget "NovaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A9764E233AD301008E4CF4 /* Debug */,
+				13A9764F233AD301008E4CF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1E813F3231892E600219768 /* Build configuration list for PBXProject "Nova" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -862,15 +872,6 @@
 			buildConfigurations = (
 				B1E81424231892E800219768 /* Debug */,
 				B1E81425231892E800219768 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B1E81426231892E800219768 /* Build configuration list for PBXNativeTarget "NovaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1E81427231892E800219768 /* Debug */,
-				B1E81428231892E800219768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

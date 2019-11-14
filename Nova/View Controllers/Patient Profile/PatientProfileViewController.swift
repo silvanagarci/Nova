@@ -39,8 +39,7 @@ class PatientProfileViewController: UIViewController {
     override func viewDidLoad() {
         configureVC()
         loadAndRenderAnxietyChart()
-        _tableView.dataSource = self
-        _tableView.delegate = self
+        setUpTableView()
         loadConversationsForPatient(patientId: self.patientId)
         super.viewDidLoad()
     }
@@ -55,6 +54,21 @@ class PatientProfileViewController: UIViewController {
         saveButton.layer.cornerRadius = 5
 //        patientDataButton.layer.cornerRadius = 5
         
+//        let navItem = UINavigationItem(title: "Back")
+        
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(saveButtonTapped))
+        
+//        self.navigationController?.navigationBar.setItems([navItem], animated: false)
+        
+        self.saveButton.isHidden = true
+        
+    }
+    
+    func setUpTableView() {
+        _tableView.dataSource = self
+        _tableView.delegate = self
+        _tableView.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
     }
     
     func loadConversationsForPatient(patientId: Int) {
@@ -127,6 +141,8 @@ extension PatientProfileViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
+        cell.backgroundColor = UIColor(white: 1.0, alpha: 0.65)
+        
         cell.textLabel!.text = self.conversations[indexPath.row]["date"] as! String
         
         return cell
@@ -140,5 +156,9 @@ extension PatientProfileViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         loadAndShowConversationAt(conversationId: self.conversations[indexPath.row]["id"] as! Int)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Conversations"
     }
 }

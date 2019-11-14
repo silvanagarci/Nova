@@ -249,6 +249,7 @@ extension ChatViewController: MessageInputBarDelegate {
             text: text)
         
         messages.append(newMessage)
+        detectAndHandleHighRiskMessages(msgText: text)
         
         self.postMessage(msg: newMessage)
         
@@ -300,6 +301,20 @@ extension ChatViewController: MessageInputBarDelegate {
             self.messagesCollectionView.scrollToBottom(animated: true)
         }
         
+    }
+    
+    func detectAndHandleHighRiskMessages(msgText: String) {
+        if msgText.lowercased().contains("911") ||
+            msgText.lowercased().contains("call police") ||
+            msgText.lowercased().contains("call therapist") ||
+            msgText.lowercased().contains("kill") ||
+            msgText.lowercased().contains("hurt myself") ||
+            msgText.lowercased().contains("cut")
+        {
+            
+            
+            
+        }
     }
     
     

@@ -11,6 +11,8 @@
 		13A97649233AD301008E4CF4 /* NovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A97648233AD301008E4CF4 /* NovaUITests.swift */; };
 		13BA14F6235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA14F5235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift */; };
 		13BA14F8235FA25300511E96 /* HighRiskMessageDetectedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BA14F7235FA25300511E96 /* HighRiskMessageDetectedViewController.xib */; };
+		13EB72102388AAC4000E07CB /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB720F2388AAC4000E07CB /* Patient.swift */; };
+		13EB72122388B67A000E07CB /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB72112388B67A000E07CB /* Conversation.swift */; };
 		B14E90492334234600484BCC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E90482334234600484BCC /* Credentials.swift */; };
 		B15A9F20231F088A005EEDC4 /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A9F1E231F088A005EEDC4 /* PatientListViewController.swift */; };
 		B15A9F21231F088A005EEDC4 /* PatientListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15A9F1F231F088A005EEDC4 /* PatientListViewController.xib */; };
@@ -59,6 +61,8 @@
 		13A9764A233AD301008E4CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BA14F5235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighRiskMessageDetectedViewController.swift; sourceTree = "<group>"; };
 		13BA14F7235FA25300511E96 /* HighRiskMessageDetectedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighRiskMessageDetectedViewController.xib; sourceTree = "<group>"; };
+		13EB720F2388AAC4000E07CB /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		13EB72112388B67A000E07CB /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		26AAB21FD59015DE520D251C /* Pods-NovaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.debug.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38E61D1A54043F0D5C1288FB /* Pods-NovaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaUITests.release.xcconfig"; path = "Target Support Files/Pods-NovaUITests/Pods-NovaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		393B87AC6F1C031C0DF1D1E5 /* Pods-NovaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaTests.release.xcconfig"; path = "Target Support Files/Pods-NovaTests/Pods-NovaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				B1E814452318CC7000219768 /* Message.swift */,
+				13EB720F2388AAC4000E07CB /* Patient.swift */,
+				13EB72112388B67A000E07CB /* Conversation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -543,12 +549,14 @@
 				B15A9F20231F088A005EEDC4 /* PatientListViewController.swift in Sources */,
 				B14E90492334234600484BCC /* Credentials.swift in Sources */,
 				134BF4E923399CC400202332 /* BackendService.swift in Sources */,
+				13EB72102388AAC4000E07CB /* Patient.swift in Sources */,
 				B1E814462318CC7000219768 /* Message.swift in Sources */,
 				B15AB15E23317BD100A05755 /* GeneralConstants.swift in Sources */,
 				B1E814412318B6FA00219768 /* ChatViewController.swift in Sources */,
 				13BA14F6235FA1EF00511E96 /* HighRiskMessageDetectedViewController.swift in Sources */,
 				B1E813FC231892E600219768 /* AppDelegate.swift in Sources */,
 				B1832585231F22DC00EE0A6A /* PatientProfileViewController.swift in Sources */,
+				13EB72122388B67A000E07CB /* Conversation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,7 +22,7 @@ class PatientProfileViewController: UIViewController {
     
     var patientId = 0
     
-    var conversations : [Dictionary<String, Any>] = []
+    var conversations : [Conversation] = []
     
 //    @IBAction func patientDataButtonTapped(_ sender: Any) {
 //        let alertController = UIAlertController(title: "Patient's Report", message: " Patient has shown 21.2% anxiety and 57.5% stress levels in the past week." , preferredStyle: .alert)
@@ -72,9 +72,13 @@ class PatientProfileViewController: UIViewController {
     }
     
     func loadConversationsForPatient(patientId: Int) {
-        self.conversations = BackendService.shared.getConversations(ofDoctor: 0, forPatientId: patientId)
+        BackendService.shared.getConversations(forPatientId: patientId, completion: {conversations in
+            self.conversations = conversations
+                
+            self._tableView.reloadData()
+        })
         
-        self._tableView.reloadData()
+
     }
         
     func navigateToPatientListVC() {
@@ -143,7 +147,7 @@ extension PatientProfileViewController : UITableViewDataSource {
         
         cell.backgroundColor = UIColor(white: 1.0, alpha: 0.65)
         
-        cell.textLabel!.text = self.conversations[indexPath.row]["date"] as! String
+        cell.textLabel!.text = self.conversations[indexPath.row].dateCreated as! String
         
         return cell
     }
@@ -155,7 +159,7 @@ extension PatientProfileViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        loadAndShowConversationAt(conversationId: self.conversations[indexPath.row]["id"] as! Int)
+        loadAndShowConversationAt(conversationId: self.conversations[indexPath.row].id as! Int)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

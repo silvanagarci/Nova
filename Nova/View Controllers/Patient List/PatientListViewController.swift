@@ -13,7 +13,7 @@ class PatientListViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    private var patientList = BackendService.shared.getDoctorsPatients()
+    private var patientList : [Patient] = []
 
     @IBAction func logOutButtonTapped(_ sender: Any) {
         navigateToRegistrationVC()
@@ -33,11 +33,15 @@ class PatientListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         logOutButton.layer.cornerRadius = 5
         
+        BackendService.shared.getDoctorsPatients(completion: {data in
+            self.patientList = data
+            self.tableView.reloadData()
+        })
     }
     
     func navigateToPatientProfileVC(selectedRow: Int) {
         let patientViewController = PatientProfileViewController()
-        patientViewController.patientId = self.patientList[selectedRow]["id"] as! Int
+        patientViewController.patientId = self.patientList[selectedRow].id
         
         let navigationController = UINavigationController(rootViewController: patientViewController)
         
@@ -59,7 +63,7 @@ extension PatientListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier") as! UITableViewCell
         
         //adding the item to table row
-        cell.textLabel?.text = patientList[indexPath.row]["name"] as? String
+        cell.textLabel?.text = patientList[indexPath.row].name
         
         return cell
     }

@@ -12,19 +12,24 @@ import UIKit
 class RegistrationViewController: UIViewController {
         
     @IBOutlet weak var loginPatientButton: UIButton!
-    @IBOutlet weak var loginTherapistButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
  
-
-    @IBAction func patientLoginButtonTapped(_ sender: Any) {
-        navigateToMessagesVC()
-        
-    }
-    
     @IBAction func therapistLoginButtonTapped(_ sender: Any) {
-        navigateToPatientListVC()
+        BackendService.shared.login(username: usernameTextField.text!, password: passwordTextField.text!, completion: { isLoggedIn, isDoctor, userId in
+            
+            if isLoggedIn {
+                if isDoctor {
+                    self.navigateToPatientListVC()
+                } else {
+                    self.navigateToMessagesVC()
+                }
+            } else {
+                print("Couldn't login")
+            }
+        })
+        
     }
     
     
@@ -40,7 +45,7 @@ class RegistrationViewController: UIViewController {
     func configureVC() {
         usernameTextField.placeholder = "Username"
         passwordTextField.placeholder = "Password"
-        loginTherapistButton.layer.cornerRadius = 5
+        passwordTextField.isSecureTextEntry = true
         loginPatientButton.layer.cornerRadius = 5
         self.navigationController?.navigationBar.barTintColor = kNovaColor
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")

@@ -89,10 +89,10 @@ class PatientProfileViewController: UIViewController {
     func loadAndRenderAnxietyChart() {
         let anxietyValues = [4, 7, 3, 9, 1, 3, 10].sorted().reversed()
         
-        BackendService.shared.getAnxiety(forUserId: 1, completion: {CHANGE_TO_anxiety_values in
+        BackendService.shared.getAnxiety(forPatientId: patientId, completion: {CHANGE_TO_anxiety_values in
             
             var i = 0
-            let chartDataEntries : [ChartDataEntry] = anxietyValues.compactMap({ val in
+            let chartDataEntries : [ChartDataEntry] = CHANGE_TO_anxiety_values.compactMap({ val in
                 let entry = ChartDataEntry(x: Double(i), y: Double(val))
                 i = i + 1 // i++ was blocked by compiler
                 return entry

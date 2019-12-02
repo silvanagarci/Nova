@@ -17,9 +17,7 @@ class ChatViewController: MessagesViewController {
     var novaUser = Sender(id: "0", displayName: "Nova")
     var patientUser = Sender(id: "1", displayName: "Patient")
     
-    let conversationId = 100 + Int.random(in: 0 ..< 10)
-    
-    var convoList : [String] = []
+    var conversationId = 100 + Int.random(in: 0 ..< 10)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -68,7 +66,10 @@ class ChatViewController: MessagesViewController {
             
             self.sessionId = session.sessionID
             
-            self.createConversations(id: self.conversationId)
+            self.createConversations(id: self.conversationId, callback: {convoId in
+                self.conversationId = convoId
+                self.startConversation()
+            })
             
             print(self.sessionId)
             self.dispatchGroup.leave()
@@ -77,7 +78,7 @@ class ChatViewController: MessagesViewController {
         dispatchGroup.notify(queue: .main) {
             print("done with session ID call")
             
-            self.startConversation()
+           
         }
     }
     
@@ -89,27 +90,27 @@ class ChatViewController: MessagesViewController {
         assistant?.serviceURL = "https://gateway.watsonplatform.net/assistant/api"
     }
     
-    func createConversations(id: Int) {
-        let now = Date()
-        
-        let formatter = DateFormatter()
-        
-        formatter.timeZone = TimeZone.current
-        
-        formatter.dateFormat = "MM-dd-YY"
-        
-        let dateString = formatter.string(from: now)
-        
-        BackendService.shared.conversationsWithIdDate.append([
-            "id": id,
-            "date": dateString
-        ])
+    func createConversations(id: Int, callback: @escaping (_ conversationId: Int) -> ()) {
+//        let now = Date()
+//
+//        let formatter = DateFormatter()
+//
+//        formatter.timeZone = TimeZone.current
+//
+//        formatter.dateFormat = "MM-dd-YY"
+//
+//        let dateString = formatter.string(from: now)
+//
+//        BackendService.shared.conversationsWithIdDate.append([
+//            "id": id,
+//            "date": dateString
+//        ])
+//
+        BackendService.shared.createConversation(callback: callback)
     }
     
-    func postMessage(msg: WatsonMessage) {
-        convoList.append(msg.text)
-        
-        BackendService.shared.conversationsById[String(self.conversationId)] = convoList
+    func postMessage(msg: WatsonMessage, fromPatient: Bool) {
+        BackendService.shared.createMessage(text: msg.text, fromPatient: fromPatient, conversationId: self.conversationId, callback: {})
     }
     
     /**
@@ -149,6 +150,8 @@ class ChatViewController: MessagesViewController {
             for message in result.output.generic ?? [] {
                 var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
                 self.messages.append(inputMessage)
+                
+                self.postMessage(msg: inputMessage, fromPatient: false)
             }
             self.dispatchGroup.leave()
         }
@@ -194,7 +197,7 @@ extension ChatViewController: MessagesDataSource {
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         
-        return 12
+        return 15
     }
     
     func messageTopLabelAttributedText(
@@ -211,11 +214,11 @@ extension ChatViewController: MessagesDataSource {
 extension ChatViewController: MessagesLayoutDelegate {
     
     func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 8)
+        return CGSize(width: 0, height: 16)
     }
     
     func heightForLocation(message: MessageType, at indexPath: IndexPath, with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 0
+        return 20
     }
 }
 
@@ -251,7 +254,7 @@ extension ChatViewController: MessageInputBarDelegate {
         messages.append(newMessage)
         detectAndHandleHighRiskMessages(msgText: text)
         
-        self.postMessage(msg: newMessage)
+        self.postMessage(msg: newMessage, fromPatient: true)
         
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
@@ -290,7 +293,7 @@ extension ChatViewController: MessageInputBarDelegate {
                 var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
                 self.messages.append(inputMessage)
                 
-                self.postMessage(msg: inputMessage)
+                self.postMessage(msg: inputMessage, fromPatient: false)
             }
             self.dispatchGroup.leave()
         }

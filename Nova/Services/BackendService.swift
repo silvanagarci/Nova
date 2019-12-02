@@ -43,16 +43,89 @@ class BackendService {
         ]
     ]
     
-    func getAnxiety(forUserId: Int, completion: @escaping (_ result: [Int])->()) {
-        request(baseUrl + "/anxiety/1").responseSwiftyJSON {dataResponse in
-            
-            if let anxietyValues = (dataResponse.result.value?["data"].arrayValue.map {$0.intValue}) {
-                completion(anxietyValues)
-            } else {
-                completion([])
-            }
+    func createMessage(text: String, fromPatient: Bool, conversationId: Int, callback: @escaping () -> ()) {
+        let headersDict : HTTPHeaders = [
+            "Content-Type": "application/json",
+            "token": self.token
+        ]
         
-        }
+        let params: Parameters = [
+            "from_patient": fromPatient,
+            "text": text,
+        ]
+        
+        request(baseUrl + "/create-message/\(conversationId)", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headersDict).responseJSON(completionHandler: { (response) in
+            
+            if let status = response.response?.statusCode,
+                status >= 200 && status < 300 {
+                
+                if let data = response.data {
+                    if let result : JSON = try! JSON(data: data) {
+                        let message : JSON = result["message"]
+                        
+                        callback()
+                        return
+                    }
+                }
+            }
+            
+            callback()
+            return
+        })
+        
+    }
+    
+    func createConversation(callback: @escaping (_ conversationId: Int) -> ()) {
+        let headersDict : HTTPHeaders = [
+            "Content-Type": "application/json",
+            "token": self.token
+        ]
+        
+        request(baseUrl + "/create-conversation", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headersDict).responseJSON(completionHandler: { (response) in
+            
+            if let status = response.response?.statusCode,
+                status >= 200 && status < 300 {
+                
+                if let data = response.data {
+                    if let result : JSON = try! JSON(data: data) {
+                        let conversationId : Int = result["converation_id"].intValue
+                        
+                        callback(conversationId)
+                        return
+                    }
+                }
+            }
+            
+            callback(-1)
+            return
+        })
+    }
+    
+    func getAnxiety(forPatientId: Int, completion: @escaping (_ result: [Double])->()) {
+//        request(baseUrl + "/anxiety/1").responseSwiftyJSON {dataResponse in
+//
+//            if let anxietyValues = (dataResponse.result.value?["data"].arrayValue.map {$0.intValue}) {
+//                completion(anxietyValues)
+//            } else {
+//                completion([])
+//            }
+//
+//        }
+        getConversations(forPatientId: forPatientId, completion: {conversations in
+            let anxietyValues : [Double] = conversations.map({convo in
+                let anxVal : [Double] = convo.messages.map({$0.analysisValue})
+                
+                var total: Double = 0.0
+                
+                for a in anxVal {
+                    total += a
+                }
+                
+                return total / Double(anxVal.count)
+            })
+            
+            completion(anxietyValues)
+        })
     }
     
     func getDoctorsPatients(completion: @escaping (_ data: [Patient]) -> ()) {

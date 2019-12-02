@@ -211,13 +211,19 @@ class BackendService {
                             let m = RecordedMessage(fromPatient: rawMessage["from_patient"].boolValue, text: rawMessage["text"].stringValue, dateCreated: messageDate, analysisValue: Double(rawMessage["analysis_value"].floatValue))
                             
                             if convoIdList.contains(convoId) {
-                                var convo = conversations.first(where: { $0.id == convoId })
-                                
-                                convo?.messages.append(m)
+                                for var (index, convo) in conversations.enumerated() {
+                                    if convo.id == convoId {
+                                        convo.addMessage(message: m)
+                                        
+                                        conversations[index] = convo
+                                    }
+                                }
                             } else {
                                 convoIdList.append(convoId)
                                 
-                                let convo = Conversation(messages: [m], dateCreated: messageDate, id: rawMessage["conversation_id"].intValue)
+                                var convo = Conversation(messages: [], dateCreated: messageDate, id: rawMessage["conversation_id"].intValue)
+                                
+                                convo.addMessage(message: m)
                                 
                                 conversations.append(convo)
                             }

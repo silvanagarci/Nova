@@ -20,3 +20,13 @@ struct Conversation {
     var dateCreated : Date = Date()
     var id : Int = 0
 }
+
+extension Conversation {
+    mutating func addMessage(message: RecordedMessage) {
+        var msgs = self.messages
+
+        msgs.append(message)
+
+        self.messages = msgs
+    }
+}

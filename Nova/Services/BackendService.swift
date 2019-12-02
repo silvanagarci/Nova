@@ -68,14 +68,15 @@ class BackendService {
                 
                 if let data = response.data {
                     if let result : JSON = try! JSON(data: data) {
-                        let patientsRaw : [JSON] = result["patients"].arrayValue
+                        let patientsRaw : [JSON] = result.arrayValue
                         
                         var patients : [Patient] = patientsRaw.compactMap({rawPatient in
-                            return Patient(name: "", id: 0)
+                            return Patient(name: rawPatient["name"].stringValue, id: rawPatient["id"].intValue)
                         })
                         
                         // force it to work
                         if patients.count == 0 {
+                            print("There was an issue getting patients!")
                             patients = [
                                 Patient(name: "Carter", id: 1)
                             ]
@@ -117,20 +118,36 @@ class BackendService {
                 
                 if let data = response.data {
                     if let result : JSON = try! JSON(data: data) {
-                        let conversationsRaw : [JSON] = result["conversations"].arrayValue
+                        let rawMessages : [JSON] = result.arrayValue
                         
-                        var conversations : [Conversation] = conversationsRaw.compactMap({rawConvo in
-                            return Conversation(messages: [])
-                        })
+                        var convoIdList : [Int] = []
+                        var conversations : [Conversation] = []
                         
-                        // force it to work
-                        if conversations.count == 0 {
-                            conversations = [
-                                Conversation(messages: [
-                                    RecordedMessage(fromPatient: false, text: "How are you today?", dateCreated: Date(), analysisValue: 0.0),
-                                    RecordedMessage(fromPatient: true, text: "Pretty good!", dateCreated: Date(), analysisValue: 1.0),
-                                ], dateCreated: Date())
-                            ]
+                        for rawMessage in rawMessages {
+                            let convoId = rawMessage["conversation_id"].intValue
+                            
+                            var messageDate = Date()
+                            
+                            do {
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd"
+                                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                                messageDate = dateFormatter.date(from: rawMessage["date_created"].stringValue)!
+                            }
+                            
+                            let m = RecordedMessage(fromPatient: rawMessage["from_patient"].boolValue, text: rawMessage["text"].stringValue, dateCreated: messageDate, analysisValue: Double(rawMessage["analysis_value"].floatValue))
+                            
+                            if convoIdList.contains(convoId) {
+                                var convo = conversations.first(where: { $0.id == convoId })
+                                
+                                convo?.messages.append(m)
+                            } else {
+                                convoIdList.append(convoId)
+                                
+                                let convo = Conversation(messages: [m], dateCreated: messageDate, id: rawMessage["conversation_id"].intValue)
+                                
+                                conversations.append(convo)
+                            }
                         }
                         
                         completion(conversations)
@@ -142,11 +159,6 @@ class BackendService {
             completion([])
             return
         })
-    }
-    
-    func getConversationById(conversationId: Int) -> [String] {
-        
-        return self.conversationsById[String(conversationId)]!
     }
     
     func login(username: String, password: String, completion: @escaping (_ success: Bool, _ isDoctor: Bool, _ id: Int) -> ()) {

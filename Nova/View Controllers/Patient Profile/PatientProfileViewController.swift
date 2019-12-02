@@ -112,10 +112,8 @@ class PatientProfileViewController: UIViewController {
 
     }
     
-    func loadAndShowConversationAt(conversationId: Int) {
-        let convo : [String] = BackendService.shared.getConversationById(conversationId: conversationId)
-        
-        let alertController = UIAlertController(title: "Patient's Conversation", message: convo.joined(separator: "\n") , preferredStyle: .alert)
+    func loadAndShowConversation(conversation: Conversation) {
+        let alertController = UIAlertController(title: "Patient's Conversation", message: conversation.messages.map({ $0.text }).joined(separator: "\n\n") , preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Thanks Nova!", style: .default, handler: nil)
         
@@ -147,7 +145,7 @@ extension PatientProfileViewController : UITableViewDataSource {
         
         cell.backgroundColor = UIColor(white: 1.0, alpha: 0.65)
         
-        cell.textLabel!.text = self.conversations[indexPath.row].dateCreated as! String
+        cell.textLabel!.text = self.conversations[indexPath.row].dateCreated.description
         
         return cell
     }
@@ -159,7 +157,7 @@ extension PatientProfileViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        loadAndShowConversationAt(conversationId: self.conversations[indexPath.row].id as! Int)
+        loadAndShowConversation(conversation: self.conversations[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

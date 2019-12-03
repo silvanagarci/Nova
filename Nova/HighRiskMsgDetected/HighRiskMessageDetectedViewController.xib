@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HighRiskMessageDetectedViewController" customModule="Nova" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="fwj-ZV-apd"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="We saw some words that made us worried..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXa-fb-eNE">
-                    <rect key="frame" x="39" y="115" width="337" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We saw some words that made us worried..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXa-fb-eNE">
+                    <rect key="frame" x="38.5" y="115" width="337" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Here are some resources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSm-hp-UGy">
-                    <rect key="frame" x="109" y="243" width="197" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here are some resources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSm-hp-UGy">
+                    <rect key="frame" x="108.5" y="243" width="197" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Do you need some help?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4X-vC-rR7">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Do you need some help?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4X-vC-rR7">
                     <rect key="frame" x="49" y="155" width="317" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,6 +46,9 @@
                     <state key="normal" title="Call 911">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="callEmergency:" destination="-1" eventType="touchUpInside" id="Vfn-7t-AmN"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-Cj-3GV">
                     <rect key="frame" x="20" y="405" width="374" height="50"/>
@@ -53,6 +58,9 @@
                     <state key="normal" title="Call Therapist">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="callTherapist:" destination="-1" eventType="touchUpInside" id="XWY-N1-WIv"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wu-q0-I8H">
                     <rect key="frame" x="20" y="474" width="374" height="59"/>
@@ -62,10 +70,14 @@
                     <state key="normal" title="Call National Suicide Prevention Lifeline">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="callHotline:" destination="-1" eventType="touchUpInside" id="fgE-hk-frX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="b4X-vC-rR7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Ait-xH-kaW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SwT-Cj-3GV" secondAttribute="trailing" constant="20" id="E1V-jm-EAz"/>
                 <constraint firstItem="rXa-fb-eNE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="71" id="HDX-wm-Y29"/>
                 <constraint firstItem="SwT-Cj-3GV" firstAttribute="top" secondItem="gYJ-Ao-YYA" secondAttribute="bottom" constant="25" id="JtA-W8-w09"/>
@@ -73,11 +85,13 @@
                 <constraint firstItem="gYJ-Ao-YYA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MbC-Cr-sWC"/>
                 <constraint firstItem="SwT-Cj-3GV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="VYc-9Q-V14"/>
                 <constraint firstItem="b4X-vC-rR7" firstAttribute="top" secondItem="rXa-fb-eNE" secondAttribute="bottom" constant="19" id="WLj-YK-f8d"/>
+                <constraint firstItem="rXa-fb-eNE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XXc-e2-U8o"/>
                 <constraint firstItem="rSm-hp-UGy" firstAttribute="top" secondItem="b4X-vC-rR7" secondAttribute="bottom" constant="49" id="eHG-0A-vTR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gYJ-Ao-YYA" secondAttribute="trailing" constant="20" id="gH7-cK-xWf"/>
                 <constraint firstItem="7Wu-q0-I8H" firstAttribute="top" secondItem="SwT-Cj-3GV" secondAttribute="bottom" constant="25" id="nqQ-CC-OpJ"/>
                 <constraint firstItem="7Wu-q0-I8H" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qmV-fB-6p1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Wu-q0-I8H" secondAttribute="trailing" constant="20" id="urk-0S-3SM"/>
+                <constraint firstItem="rSm-hp-UGy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="v75-dx-135"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>

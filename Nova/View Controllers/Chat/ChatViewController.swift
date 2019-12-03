@@ -314,9 +314,10 @@ extension ChatViewController: MessageInputBarDelegate {
             msgText.lowercased().contains("hurt myself") ||
             msgText.lowercased().contains("cut")
         {
-            
-            
-            
+//            let navigationController = UINavigationController(rootViewController: HighRiskMessageDetectedViewController())
+//
+//            present(navigationController, animated: true, completion: nil)
+            present(HighRiskMessageDetectedViewController(), animated: true, completion: nil)
         }
     }
     

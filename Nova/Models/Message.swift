@@ -10,21 +10,20 @@ import Foundation
 import UIKit
 import MessageKit
 
-struct Member {
-    let name: String
-}
-
-struct Message {
-    let member: Member
-    let text: String
+struct WatsonMessage {
     let messageId: String
+    let sender: Sender
+    let text: String
+
+    
+    init(sender: Sender, messageId: String,text: String) {
+        self.sender = sender
+        self.text = text
+        self.messageId = messageId
+    }
 }
 
-extension Message: MessageType {
-    var sender: Sender {
-        return Sender(id: member.name, displayName: member.name)
-    }
-    
+extension WatsonMessage: MessageType {
     var sentDate: Date {
         return Date()
     }
@@ -33,3 +32,4 @@ extension Message: MessageType {
         return .text(text)
     }
 }
+

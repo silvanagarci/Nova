@@ -13,7 +13,7 @@ class PatientListViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    private var patientList = ["Stephen Boxwell", "Carter"]
+    private var patientList : [Patient] = []
 
     @IBAction func logOutButtonTapped(_ sender: Any) {
         navigateToRegistrationVC()
@@ -33,10 +33,18 @@ class PatientListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         logOutButton.layer.cornerRadius = 5
         
+        BackendService.shared.getDoctorsPatients(completion: {data in
+            self.patientList = data
+            self.tableView.reloadData()
+        })
     }
     
-    func navigateToPatientProfileVC() {
-        let navigationController = UINavigationController(rootViewController: PatientProfileViewController())
+    func navigateToPatientProfileVC(selectedRow: Int) {
+        let patientViewController = PatientProfileViewController()
+        patientViewController.patientId = self.patientList[selectedRow].id
+        
+        let navigationController = UINavigationController(rootViewController: patientViewController)
+        
         present(navigationController, animated: false, completion: nil)
     }
     
@@ -55,7 +63,7 @@ extension PatientListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier") as! UITableViewCell
         
         //adding the item to table row
-        cell.textLabel?.text = patientList[indexPath.row]
+        cell.textLabel?.text = patientList[indexPath.row].name
         
         return cell
     }
@@ -64,7 +72,7 @@ extension PatientListViewController : UITableViewDataSource {
 
 extension PatientListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToPatientProfileVC()
+        navigateToPatientProfileVC(selectedRow: indexPath.row)
         
     }
     

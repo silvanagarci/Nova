@@ -7,14 +7,17 @@
 //
 import UIKit
 import MessageKit
+import Assistant
 
 class ChatViewController: MessagesViewController {
-    var messages: [Message] = []
-    var member: Member!
-    var nova: Member!
-    var posResponse = 0
-    var responseArray = ["Is there a specific thought or situation that is bothering you?", "I understand test and exams can be stressful. I'm here to help you feel more in control.", ]
+    var assistant: Assistant?
+    let dispatchGroup =  DispatchGroup()
+    var messages: [WatsonMessage] = []
+    var sessionId = ""
+    var novaUser = Sender(id: "0", displayName: "Nova")
+    var patientUser = Sender(id: "1", displayName: "Patient")
     
+    var conversationId = 100 + Int.random(in: 0 ..< 10)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -22,39 +25,147 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        member = Member(name: "Carter")
-        nova = Member(name: "Nova")
+        configureVC()
+        setupWatsonAssistant()
+        createWatsonSession()
+    }
+    
+    /**
+     Configure VC
+     */
+    func configureVC() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Go Back", style: .plain, target: self, action: #selector(navigateToMenu))
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
+        messageInputBar.inputTextView.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
         // remove avatar from message view
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
-        
-        let initialMessage = Message(
-            member: nova,
-            text: "Hi Carter, I'm Nova. How are you feeling today?",
-            messageId: UUID().uuidString)
-        
-        messages.append(initialMessage)
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
-        
-        configureVC()
-        
-    }
-    
-    func configureVC() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Go Back", style: .plain, target: self, action: #selector(navigateToMenu))
     }
     
     /**
-     Go bac to menu
+    Create a
+     */
+    func createWatsonSession() {
+        
+        dispatchGroup.enter()
+        
+        assistant?.createSession(assistantID: Credentials.assistantId) {
+            response, error in
+            
+            guard let session = response?.result else {
+                print(error?.localizedDescription ?? "unknown error")
+                return
+            }
+            
+            self.sessionId = session.sessionID
+            
+            self.createConversations(id: self.conversationId, callback: {convoId in
+                self.conversationId = convoId
+                self.startConversation()
+            })
+            
+            print(self.sessionId)
+            self.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("done with session ID call")
+            
+           
+        }
+    }
+    
+    /**
+     Setup configuration watson assistant
+     */
+    func setupWatsonAssistant() {
+        assistant = Assistant(version: "2019-02-28", apiKey: Credentials.WatsonApiKey)
+        assistant?.serviceURL = "https://gateway.watsonplatform.net/assistant/api"
+    }
+    
+    func createConversations(id: Int, callback: @escaping (_ conversationId: Int) -> ()) {
+//        let now = Date()
+//
+//        let formatter = DateFormatter()
+//
+//        formatter.timeZone = TimeZone.current
+//
+//        formatter.dateFormat = "MM-dd-YY"
+//
+//        let dateString = formatter.string(from: now)
+//
+//        BackendService.shared.conversationsWithIdDate.append([
+//            "id": id,
+//            "date": dateString
+//        ])
+//
+        BackendService.shared.createConversation(callback: callback)
+    }
+    
+    func postMessage(msg: WatsonMessage, fromPatient: Bool) {
+        BackendService.shared.createMessage(text: msg.text, fromPatient: fromPatient, conversationId: self.conversationId, callback: {})
+    }
+    
+    /**
+     Start conversation
+     */
+    func startConversation() {
+
+        dispatchGroup.enter()
+        assistant?.message(assistantID: Credentials.assistantId, sessionID: sessionId) {
+            response, error in
+            if let error = error {
+                switch error {
+                case let .http(statusCode, message, metadata):
+                    switch statusCode {
+                    case .some(404):
+                        // Handle Not Found (404) exception
+                        print("Not found")
+                    case .some(413):
+                        // Handle Request Too Large (413) exception
+                        print("Payload too large")
+                    default:
+                        if let statusCode = statusCode {
+                            print("Error - code: \(statusCode), \(message ?? "")")
+                        }
+                    }
+                default:
+                    print(error.localizedDescription)
+                }
+                return
+            }
+            
+            guard let result = response?.result else {
+                print(error?.localizedDescription ?? "unknown error")
+                return
+            }
+            
+            for message in result.output.generic ?? [] {
+                var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
+                self.messages.append(inputMessage)
+                
+                self.postMessage(msg: inputMessage, fromPatient: false)
+            }
+            self.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("done reading messages")
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
+        }
+
+    }
+    
+    /**
+     Go back to menu
      */
     @objc func navigateToMenu() {
         let navigationController = UINavigationController(rootViewController: RegistrationViewController())
@@ -71,7 +182,7 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func currentSender() -> Sender {
-        return Sender(id: member.name, displayName: member.name)
+        return patientUser
     }
     
     func messageForItem(
@@ -86,7 +197,7 @@ extension ChatViewController: MessagesDataSource {
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         
-        return 12
+        return 15
     }
     
     func messageTopLabelAttributedText(
@@ -103,12 +214,11 @@ extension ChatViewController: MessagesDataSource {
 extension ChatViewController: MessagesLayoutDelegate {
     
     func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 8)
+        return CGSize(width: 0, height: 16)
     }
     
     func heightForLocation(message: MessageType, at indexPath: IndexPath, with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        
-        return 0
+        return 20
     }
 }
 
@@ -116,7 +226,7 @@ extension ChatViewController: MessagesLayoutDelegate {
 
 extension ChatViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .blue : .green
+        return isFromCurrentSender(message: message) ? kSenderColor : kReceiverColor
     }
     
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
@@ -136,32 +246,94 @@ extension ChatViewController: MessageInputBarDelegate {
         _ inputBar: MessageInputBar,
         didPressSendButtonWith text: String) {
         
-        let newMessage = Message(
-            member: member,
-            text: text,
-            messageId: UUID().uuidString)
+        let newMessage = WatsonMessage(
+            sender: patientUser,
+            messageId: UUID().uuidString,
+            text: text)
         
         messages.append(newMessage)
+        detectAndHandleHighRiskMessages(msgText: text)
+        
+        self.postMessage(msg: newMessage, fromPatient: true)
+        
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
         
-        let seconds = 2.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            if self.posResponse < self.responseArray.count {
-                let responseMessage = Message(
-                    member: self.nova,
-                    text: self.responseArray[self.posResponse],
-                    messageId: UUID().uuidString)
-                
-                self.messages.append(responseMessage)
-                inputBar.inputTextView.text = ""
-                self.messagesCollectionView.reloadData()
-                self.posResponse += 1
+        dispatchGroup.enter()
+        assistant?.message(assistantID: Credentials.assistantId, sessionID: sessionId, input: MessageInput(text: text)) {
+            response, error in
+            if let error = error {
+                switch error {
+                case let .http(statusCode, message, metadata):
+                    switch statusCode {
+                    case .some(404):
+                        // Handle Not Found (404) exception
+                        print("Not found")
+                    case .some(413):
+                        // Handle Request Too Large (413) exception
+                        print("Payload too large")
+                    default:
+                        if let statusCode = statusCode {
+                            print("Error - code: \(statusCode), \(message ?? "")")
+                        }
+                    }
+                default:
+                    print(error.localizedDescription)
+                }
+                return
             }
+            
+            guard let result = response?.result else {
+                print(error?.localizedDescription ?? "unknown error")
+                return
+            }
+            
+            for message in result.output.generic ?? [] {
+                var inputMessage = WatsonMessage(sender: self.novaUser, messageId: UUID().uuidString, text: message.text ?? kEmptyString)
+                self.messages.append(inputMessage)
+                
+                self.postMessage(msg: inputMessage, fromPatient: false)
+            }
+            self.dispatchGroup.leave()
         }
-        messagesCollectionView.scrollToBottom(animated: true)
         
+        dispatchGroup.notify(queue: .main) {
+            print("done reading messages")
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
+        }
         
     }
+    
+    func detectAndHandleHighRiskMessages(msgText: String) {
+        if msgText.lowercased().contains("911") ||
+            msgText.lowercased().contains("call police") ||
+            msgText.lowercased().contains("call therapist") ||
+            msgText.lowercased().contains("kill") ||
+            msgText.lowercased().contains("hurt myself") ||
+            msgText.lowercased().contains("cut")
+        {
+//            let navigationController = UINavigationController(rootViewController: HighRiskMessageDetectedViewController())
+//
+//            present(navigationController, animated: true, completion: nil)
+            present(HighRiskMessageDetectedViewController(), animated: true, completion: nil)
+        }
+    }
+    
+    
+}
+
+// MARK: - TextViewDelegate
+
+extension ChatViewController : UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.contains("\n") {
+            textView.text = textView.text.replacingOccurrences(of: "\n", with: "")
+            textView.endEditing(true)
+            self.messageInputBar(self.messageInputBar, didPressSendButtonWith: textView.text)
+        }
+    }
+
 }
